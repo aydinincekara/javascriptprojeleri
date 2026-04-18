@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>K.Çekmece Belediyesi | AR & Maker Stüdyosu</title>
+    <title>K.Çekmece Belediyesi | Bilişim Panayırı (100 Proje)</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -60,6 +60,18 @@
             color: #94a3b8;
             margin-top: 5px;
             font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .badge-100 {
+            display: inline-block;
+            background: var(--primary-pink);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
         }
 
@@ -217,12 +229,13 @@
 <body>
 
     <header>
+        <div class="badge-100">100 DEV PROJE</div>
         <h1>KÜÇÜKÇEKMECE BELEDİYESİ</h1>
         <div class="subtitle">Bilişim Panayırı & Geliştirme Laboratuvarı</div>
         
         <div class="search-container">
             <i class="fa-solid fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Projelerde ara... (Örn: AR, Oyun, Sensör, AFİ)">
+            <input type="text" id="searchInput" placeholder="Projelerde ara... (Örn: AR, IoT, Scratch, Unity)">
         </div>
     </header>
 
@@ -236,12 +249,12 @@
     </footer>
 
     <script>
-        // Renk Paleti
+        // Renk Paleti (Döngüsel olarak atanacak)
         const colors = ['#0ea5e9', '#ff007f', '#facc15', '#10b981', '#8b5cf6', '#ef4444', '#f97316', '#06b6d4'];
 
-        // 60 Adet Proje Veritabanı
+        // 100 Adet Proje Veritabanı
         const projectsData = [
-            // --- BÖLÜM 1: AR & Sensör Deneyimleri ---
+            // --- BÖLÜM 1: AR & Sensör Deneyimleri (1-10) ---
             { id: 1, title: "Siber Mesh & Makyaj", desc: "52 noktalı akıllı ağ sistemiyle yüz hatlarını takip eden AR maske deneyimi.", icon: "fa-masks-theater" },
             { id: 2, title: "Ateş Püskürtme", desc: "Ağız hareketlerini analiz ederek partikül (particle) sistemi kontrolü.", icon: "fa-fire" },
             { id: 3, title: "Göz Kırpma Sensörü", desc: "Göz kapaklarının hareketiyle tetiklenen dijital AR filtreleri ve oyunlar.", icon: "fa-eye" },
@@ -253,7 +266,7 @@
             { id: 9, title: "QR Kod ile Eylem", desc: "Kamera okuması sonrası ekranda 3D objelerin belirmesini sağlayan WebRTC sistemi.", icon: "fa-qrcode" },
             { id: 10, title: "Renk Seçici Kamera", desc: "Kameradan alınan piksellerin RGB/HEX kodlarını analiz eden geliştirici aracı.", icon: "fa-eye-dropper" },
 
-            // --- BÖLÜM 2: Kültürel & Kurumsal Uygulamalar ---
+            // --- BÖLÜM 2: Kültürel & Kurumsal Uygulamalar (11-20) ---
             { id: 11, title: "WebAR Canlı Müze", desc: "Barış Manço ve Zeki Müren gibi kültürel ikonlarımızı hedef resimlerle canlandıran galeri.", icon: "fa-building-columns" },
             { id: 12, title: "YKS Hedef Sayacı", desc: "Dev ekranlar için tasarlanmış, dinamik arayüzlü YKS geri sayım aracı.", icon: "fa-clock" },
             { id: 13, title: "Bilişim Panayırı Haritası", desc: "Gençlik merkezi ve etkinlik stantlarını gösteren tıklanabilir vektörel alan haritası.", icon: "fa-map-location-dot" },
@@ -265,7 +278,7 @@
             { id: 19, title: "Zeki Müren Plak AR", desc: "Fiziksel bir plağa kamera tutulduğunda müzik ve 3D efektlerin başlaması.", icon: "fa-record-vinyl" },
             { id: 20, title: "Kültür Sergisi Asistanı", desc: "Ziyaretçilere sergi hakkında bilgi veren yapay zeka destekli metin ve ses botu.", icon: "fa-robot" },
 
-            // --- BÖLÜM 3: Oyun Tasarımı & Simülasyon ---
+            // --- BÖLÜM 3: Oyun Tasarımı & Simülasyon (21-30) ---
             { id: 21, title: "Karanlık İstasyon: Radar", desc: "Korku-hayatta kalma oyunu mekaniklerinin web tabanlı radar simülasyonu.", icon: "fa-satellite-dish" },
             { id: 22, title: "Karanlık İstasyon: Envanter", desc: "Toplanan eşyaların ve ipuçlarının birleştirildiği web tabanlı çanta sistemi.", icon: "fa-briefcase" },
             { id: 23, title: "Jumpscare Mekaniği", desc: "Kamera açısı veya belirli tıklamalarla tetiklenen gerilim sahneleri testi.", icon: "fa-ghost" },
@@ -277,19 +290,19 @@
             { id: 29, title: "Piksel Art Stüdyosu", desc: "HTML5 Canvas kullanarak kendi 8-bit karakterlerinizi çizebileceğiniz editör.", icon: "fa-pen-ruler" },
             { id: 30, title: "A-Frame Uzay Yürüyüşü", desc: "Kullanıcının WASD tuşlarıyla gezinebildiği sanal gerçeklik uzay istasyonu.", icon: "fa-user-astronaut" },
 
-            // --- BÖLÜM 4: 3D Baskı & Endüstriyel Tasarım ---
+            // --- BÖLÜM 4: 3D Baskı & Endüstriyel Tasarım (31-40) ---
             { id: 31, title: "3D Baskı Önizleyici", desc: "STL formatındaki modelleri tarayıcı üzerinde inceleme ve dilimleme simülasyonu.", icon: "fa-cube" },
-            { id: 32, title: "G-Code Simülatörü", desc: "Hazırlanan katman katman baskı yollarının web tabanlı animasyonu.", icon: "fa-layer-group" },
-            { id: 33, title: "Endüstriyel Tasarım Vitrini", desc: "Fusion 360'ta hazırlanmış mekanik parçaların interaktif web galerisi.", icon: "fa-industry" },
+            { id: 32, title: "G-Code Simülatörü", desc: "Bambu Studio/Ender 3 için hazırlanan katman yollarının web tabanlı animasyonu.", icon: "fa-layer-group" },
+            { id: 33, title: "Endüstriyel Vitrin", desc: "Fusion 360'ta hazırlanmış mekanik parçaların interaktif web galerisi.", icon: "fa-industry" },
             { id: 34, title: "3D Yüz Tarama Ağı", desc: "LIDAR veya ARCore ile taranmış yüzeyleri temizleme ve inceleme aracı.", icon: "fa-face-smile" },
-            { id: 35, title: "Lazer Kesim Şablonu", desc: "Kullanıcı parametrelerine göre anlık olarak SVG formatında şablon üretici.", icon: "fa-scissors" },
+            { id: 35, title: "Lazer Kesim Şablonu", desc: "Kullanıcı parametrelerine göre anlık olarak SVG formatında kutu/şablon üretici.", icon: "fa-scissors" },
             { id: 36, title: "Zemin Algılama Testi", desc: "ARCore ve WebXR kullanarak düz zeminleri tespit edip 3D obje yerleştirme.", icon: "fa-ruler-combined" },
             { id: 37, title: "Holografik Projeksiyon", desc: "Piramit pleksi kullanarak telefon ekranından 3D illüzyon yaratan özel video oynatıcı.", icon: "fa-hamsa" },
             { id: 38, title: "Malzeme Yorgunluğu Testi", desc: "Görsel olarak PLA, ABS ve PETG esneklik sınırlarını gösteren web simülasyonu.", icon: "fa-smog" },
             { id: 39, title: "Montaj Rehberi", desc: "Karmaşık mekanik parçaların adım adım nasıl birleştirileceğini gösteren 3D animasyon.", icon: "fa-screwdriver-wrench" },
             { id: 40, title: "Üç Boyutlu Çizim Tahtası", desc: "Farenin derinlik (Z ekseni) hareketiyle havaya 3D çizgiler çizme aracı.", icon: "fa-pen-nib" },
 
-            // --- BÖLÜM 5: Robotik & IoT (Nesnelerin İnterneti) ---
+            // --- BÖLÜM 5: Robotik & IoT (Nesnelerin İnterneti) (41-50) ---
             { id: 41, title: "Web Serial Robot Kol", desc: "Tarayıcı üzerinden Arduino/ESP32 bağlı robotik kolu kontrol etme paneli.", icon: "fa-robot" },
             { id: 42, title: "mBot Çizgi İzleyen", desc: "mBot sensör mantığını blok tabanlı simüle eden kodlama arayüzü.", icon: "fa-car" },
             { id: 43, title: "Akıllı Ev IoT Paneli", desc: "Raspberry Pi ile haberleşen, buton ve röle verilerini gösteren kontrol arayüzü.", icon: "fa-house-signal" },
@@ -301,7 +314,7 @@
             { id: 49, title: "Lojistik Drone Rotası", desc: "GPS koordinatlarını kullanarak harita üzerinde otonom drone uçuş yolu çizme.", icon: "fa-helicopter" },
             { id: 50, title: "Giyilebilir Kalp Atışı", desc: "Nabız sensörü verilerinin web sayfasında animasyonlu bir kalbi attırması.", icon: "fa-heart-pulse" },
 
-            // --- BÖLÜM 6: Veri, AI & Siber Güvenlik ---
+            // --- BÖLÜM 6: Veri, Yapay Zeka & Siber Güvenlik (51-60) ---
             { id: 51, title: "Yapay Zeka Asistanı", desc: "API entegrasyonu ile çalışan, projelere rehberlik eden sohbet botu.", icon: "fa-brain" },
             { id: 52, title: "AI Görsel Tasarım", desc: "Metin istemleriyle (Prompt) panayır için afiş konseptleri üreten arayüz simülatörü.", icon: "fa-wand-magic-sparkles" },
             { id: 53, title: "Siber Güvenlik Testi", desc: "Temel ağ ve şifreleme bilginizi ölçeceğiniz interaktif JS quiz uygulaması.", icon: "fa-shield-halved" },
@@ -311,7 +324,55 @@
             { id: 57, title: "Scratch Blok Çevirmen", desc: "Görsel kod bloklarını metin tabanlı (Python/JS) koda çeviren öğrenim aracı.", icon: "fa-puzzle-piece" },
             { id: 58, title: "Veri Dışa Aktarıcı", desc: "Oluşturulan projelerdeki log kayıtlarını CSV formatında bilgisayara indirme.", icon: "fa-file-export" },
             { id: 59, title: "Particle Patlaması", desc: "WebGL kullanarak performansı yüksek binlerce parçacığın fareyi takip etmesi.", icon: "fa-burst" },
-            { id: 60, title: "AI Kod İnceleyici", desc: "Yazılan HTML/JS kodlarındaki hataları bulan rehber asistan simülasyonu.", icon: "fa-code" }
+            { id: 60, title: "AI Kod İnceleyici", desc: "Yazılan HTML/JS kodlarındaki hataları bulan rehber asistan simülasyonu.", icon: "fa-code" },
+
+            // --- BÖLÜM 7: UI/UX & Web Geliştirme Araçları (61-70) ---
+            { id: 61, title: "Cam Tasarım (Glassmorphism)", desc: "Arayüz elemanları için saydamlık ve bulanıklık ayarlarını test etme aracı.", icon: "fa-window-maximize" },
+            { id: 62, title: "Karanlık Mod Testi", desc: "Web sayfalarının aydınlık ve karanlık mod arasındaki renk geçiş simülasyonu.", icon: "fa-moon" },
+            { id: 63, title: "CSS Grid Stüdyosu", desc: "Sürükle-bırak yöntemiyle karmaşık web sayfası iskeletleri (layout) oluşturma.", icon: "fa-border-all" },
+            { id: 64, title: "Responsive Görüntüleyici", desc: "Tasarımların telefon, tablet ve masaüstü ekranlarında nasıl göründüğünü test etme.", icon: "fa-mobile-screen" },
+            { id: 65, title: "SVG İkon Üretici", desc: "Matematiksel parametrelerle kendi vektörel web ikonlarını oluşturma paneli.", icon: "fa-bezier-curve" },
+            { id: 66, title: "CSS Animasyon Laboratuvarı", desc: "Keyframe kullanarak nesnelere zıplama, dönme ve solma efektleri verme aracı.", icon: "fa-film" },
+            { id: 67, title: "Tipografi ve Font Seçici", desc: "Farklı Google Fontlarının başlık ve paragraflarda uyumunu test etme paneli.", icon: "fa-font" },
+            { id: 68, title: "Web Erişilebilirlik Testi", desc: "Renk körlüğü veya görme zorluğu olanlar için kontrast oranlarını hesaplama.", icon: "fa-universal-access" },
+            { id: 69, title: "Renk Paleti Jeneratörü", desc: "Seçilen bir ana renge göre uyumlu yan renkleri otomatik hesaplayan algoritma.", icon: "fa-swatchbook" },
+            { id: 70, title: "Markdown Editörü", desc: "Github tarzı readme dosyaları ve dokümantasyonlar hazırlamak için canlı önizleyici.", icon: "fa-file-code" },
+
+            // --- BÖLÜM 8: İleri Seviye Oyun Mekanikleri (71-80) ---
+            { id: 71, title: "Şifre Çözücü Mekaniği", desc: "Karanlık İstasyon tarzı oyunlar için döner çarklı kasa şifresi kırma mini oyunu.", icon: "fa-unlock-keyhole" },
+            { id: 72, title: "Unity WebGL Köprüsü", desc: "JavaScript ile Unity oyun motoru arasında veri ve skor alışverişi sağlayan arayüz.", icon: "fa-cubes" },
+            { id: 73, title: "Liderlik Tablosu API", desc: "Oyunlarda alınan en yüksek skorları bulut üzerinde (Firebase/Local) sıralama.", icon: "fa-list-ol" },
+            { id: 74, title: "Procedural Zindan", desc: "Rastgele (Algoritmik) olarak sonsuz oda ve koridor üreten harita algoritması.", icon: "fa-dungeon" },
+            { id: 75, title: "Gelişmiş Çarpışma Testi", desc: "AABB ve Dairesel algoritmalarla nesnelerin birbirine çarpma hassasiyetini ölçme.", icon: "fa-car-burst" },
+            { id: 76, title: "Raycasting Vizyonu", desc: "Oyun içi karakterin görüş açısını ve duvarların arkasını görememesini hesaplama.", icon: "fa-eye-slash" },
+            { id: 77, title: "Oyun İçi Ekonomi", desc: "Altın kazanımı, eşya fiyatları ve enflasyon dengesini test eden simülasyon.", icon: "fa-coins" },
+            { id: 78, title: "NPC Yapay Zekası", desc: "Düşman karakterlerin oyuncuyu fark etme ve takip etme algoritmaları (FSM).", icon: "fa-users-gear" },
+            { id: 79, title: "İzometrik Harita Yapıcı", desc: "2.5D görünümlü strateji ve şehir kurma oyunları için harita editörü.", icon: "fa-map" },
+            { id: 80, title: "Yön Bulma (A* Pathfinding)", desc: "Engelli bir arazide A noktasından B noktasına en kısa yolu bulan algoritma.", icon: "fa-route" },
+
+            // --- BÖLÜM 9: Donanım & Elektronik Simülasyonları (81-90) ---
+            { id: 81, title: "Ohm Kanunu Hesaplayıcı", desc: "Voltaj, Akım ve Direnç arasındaki ilişkiyi gösteren interaktif devre.", icon: "fa-bolt" },
+            { id: 82, title: "Mantık Kapıları (Logic Gates)", desc: "AND, OR, NOT kapılarını birleştirerek dijital devre tasarlama arayüzü.", icon: "fa-microchip" },
+            { id: 83, title: "Breadboard Simülatörü", desc: "Led ve dirençleri sanal breadboard üzerine yerleştirerek test yapma ekranı.", icon: "fa-plug" },
+            { id: 84, title: "Osiloskop Ekranı", desc: "Ses ve sensörlerden gelen frekansları dijital dalga formatında görüntüleme.", icon: "fa-wave-square" },
+            { id: 85, title: "LED Matris Çizici", desc: "8x8 nokta matris ekranlar için tıklayarak kendi pixel ikonunu oluşturma aracı.", icon: "fa-border-all" },
+            { id: 86, title: "Servo Motor Açı Testi", desc: "Sanal bir kaydırıcı (slider) ile SG90 servo motorun açılarını (0-180) belirleme.", icon: "fa-fan" },
+            { id: 87, title: "Step Motor Kontrolcüsü", desc: "3D yazıcılarda kullanılan step motorların adım ve hız prensiplerini inceleme.", icon: "fa-gear" },
+            { id: 88, title: "Batarya (Li-Po) Monitörü", desc: "Pil hücrelerinin voltaj dengesini ve şarj seviyelerini okuyan simülasyon.", icon: "fa-battery-three-quarters" },
+            { id: 89, title: "Sanal Lehimleme Rehberi", desc: "Elektronik kartlarda doğru ve yanlış lehim tekniklerini gösteren infografik modül.", icon: "fa-fire-burner" },
+            { id: 90, title: "Multimetre Simülasyonu", desc: "Sanal problarla devre üzerindeki gerilimi ve kısa devreleri ölçme antrenmanı.", icon: "fa-tachograph-digital" },
+
+            // --- BÖLÜM 10: Eğitsel Teknolojiler & Üretkenlik (91-100) ---
+            { id: 91, title: "Prompt Mühendisliği", desc: "Yapay zeka modellerine doğru komut vermeyi öğreten interaktif rehber.", icon: "fa-terminal" },
+            { id: 92, title: "Metinden Ses Sentezi", desc: "Web Speech API ile yazılan metinleri farklı dil ve tonlarda sese çevirme.", icon: "fa-volume-high" },
+            { id: 93, title: "Makine Öğrenmesi Testi", desc: "Teachable Machine modelini bağlayarak kameradan nesne tanıma (Örn: Elma/Armut).", icon: "fa-camera" },
+            { id: 94, title: "Duygu Analizi (NLP)", desc: "Kullanıcının yazdığı cümlenin olumlu, olumsuz veya nötr olduğunu anlayan algoritma.", icon: "fa-face-meh" },
+            { id: 95, title: "Sıralama Algoritmaları", desc: "Bubble Sort, Merge Sort gibi yazılım mantıklarını görsel barlarla anlatan sistem.", icon: "fa-sort" },
+            { id: 96, title: "Otonom Araç Sensörü", desc: "LIDAR mantığıyla aracın çevresindeki engelleri nasıl gördüğünü anlatan radar.", icon: "fa-car-side" },
+            { id: 97, title: "Maker Atölyesi Randevu", desc: "Öğrencilerin 3D yazıcı veya donanım setlerini rezerve edebildiği takvim sistemi.", icon: "fa-calendar-days" },
+            { id: 98, title: "Proje Sınıfı Yoklama", desc: "Gençlik merkezindeki öğrencilerin girişlerini QR kod veya ID ile kayıt altına alan sistem.", icon: "fa-clipboard-user" },
+            { id: 99, title: "Bilişim Terimleri Sözlüğü", desc: "Kodlama, donanım ve ağ terimlerini açıklayan hızlı arama motoru modülü.", icon: "fa-book" },
+            { id: 100, title: "Sertifika Üretici", desc: "Etkinlik bitiminde isme özel başarı sertifikasını PDF olarak tasarlayıp indirme aracı.", icon: "fa-certificate" }
         ];
 
         const container = document.getElementById('projectContainer');
