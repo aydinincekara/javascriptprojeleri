@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>K.Çekmece Belediyesi | AR Geliştirme Stüdyosu</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0ea5e9;
+            --primary-pink: #ff007f;
+            --primary-yellow: #facc15;
+            --primary-green: #10b981;
+            --primary-purple: #8b5cf6;
+            --dark-navy: #0f172a;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-navy);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.05), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 127, 0.05), transparent 40%);
+            background-attachment: fixed;
+            color: #f8fafc;
+            font-family: 'Nunito', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Üst Menü / Kurumsal Header */
+        header {
+            text-align: center;
+            padding: 40px 20px 30px; 
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        h1 {
+            font-family: 'Righteous', cursive;
+            font-size: 2.5rem; 
+            margin: 0 0 5px 0;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #fff, var(--primary-blue), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Arama Kutusu */
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto 0;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px 15px 45px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(15, 23, 42, 0.8);
+            color: white;
+            font-size: 1rem;
+            font-family: 'Nunito', sans-serif;
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+
+        /* Proje Kartları Alanı */
+        .container {
+            max-width: 1400px;
+            margin: 40px auto 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        /* Profesyonel Kart Tasarımı */
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 30px 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: var(--card-color, var(--primary-blue));
+            opacity: 0.8;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--card-color, var(--primary-blue));
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon-wrapper {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.05);
+            color: var(--card-color, var(--primary-blue));
+        }
+
+        .project-number {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-weight: 900;
+            color: rgba(255,255,255,0.1);
+            font-size: 1.5rem;
+            font-family: 'Righteous', cursive;
+        }
+
+        h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+            color: #fff;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+
+        /* Aksiyon Butonu */
+        .btn-launch {
+            display: block;
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-card:hover .btn-launch {
+            background: var(--card-color, var(--primary-blue));
+            color: #fff;
+            border-color: transparent;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-weight: 700;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+
+        /* Gizleme Sınıfı (Arama için) */
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .container { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>KÜÇÜKÇEKMECE BELEDİYESİ</h1>
+        <div class="subtitle">Bilişim Panayırı & AR/JS Laboratuvarı</div>
+        
+        <div class="search-container">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Projelerde ara... (Örn: AR, Oyun, Sensör)">
+        </div>
+    </header>
+
+    <div class="container" id="projectContainer">
+        </div>
+
+    <footer>
+        Küçükçekmece Belediyesi Gençlik Merkezi<br>
+        Bilişim Sınıfı Geliştirme Projesi &copy; 2026
+    </footer>
+
+    <script>
+        // Renk Paleti
+        const colors = ['#0ea5e9', '#ff007f', '#facc15', '#10b981', '#8b5cf6', '#ef4444', '#f97316', '#06b6d4'];
+
+        // 30 Adet Proje Veritabanı
+        const projectsData = [
+            { id: 1, title: "Siber Mesh & Makyaj", desc: "52 noktalı akıllı ağ sistemiyle yüz hatlarını takip eden AR maske deneyimi.", icon: "fa-masks-theater" },
+            { id: 2, title: "Ateş Püskürtme", desc: "Ağız hareketlerini analiz ederek partikül (particle) sistemi kontrolü.", icon: "fa-fire" },
+            { id: 3, title: "Göz Kırpma Sensörü", desc: "Göz kapaklarının hareketiyle tetiklenen dijital AR filtreleri ve oyunlar.", icon: "fa-eye" },
+            { id: 4, title: "AR Canlı Müze", desc: "Kültürel ikonlarımızı hedef resimler (Image Tracking) ile canlandıran galeri.", icon: "fa-building-columns" },
+            { id: 5, title: "AFİ 3D Boyama", desc: "2D kağıt çizimlerini doku (texture) olarak 3D modellere aktaran sistem.", icon: "fa-palette" },
+            { id: 6, title: "YKS Hedef Sayacı", desc: "Dev ekranlar için tasarlanmış, dinamik arayüzlü YKS geri sayım aracı.", icon: "fa-clock" },
+            { id: 7, title: "Karanlık İstasyon: Radar", desc: "Korku-hayatta kalma oyunu mekaniklerinin web tabanlı radar simülasyonu.", icon: "fa-satellite-dish" },
+            { id: 8, title: "3D Baskı Önizleyici", desc: "STL formatındaki modelleri tarayıcı üzerinde inceleme ve dilimleme simülasyonu.", icon: "fa-cube" },
+            { id: 9, title: "Web Serial Robot Kol", desc: "Tarayıcı üzerinden Arduino/ESP32 bağlı robotik kolu kontrol etme paneli.", icon: "fa-robot" },
+            { id: 10, title: "Uzamsal Ses Odası", desc: "Web Audio API kullanarak 3D ortamda yönlü ses (Spatial Audio) deneyimi.", icon: "fa-headphones" },
+            { id: 11, title: "Maker Lab Eğitimleri", desc: "Eğiticinin eğitimi için hazırlanmış interaktif materyal ve modüller.", icon: "fa-chalkboard-user" },
+            { id: 12, title: "Fizik Simülasyonu", desc: "Matter.js tabanlı, yerçekimi ve çarpışma testlerinin yapıldığı oyun alanı.", icon: "fa-apple-whole" },
+            { id: 13, title: "Scratch Turnuva Tablosu", desc: "Turnuva kurallarını ve canlı skorları gösteren interaktif dashboard.", icon: "fa-trophy" },
+            { id: 14, title: "Güneş Sistemi AR", desc: "Gezegenleri odanızın içine getiren WebXR destekli uzay simülasyonu.", icon: "fa-meteor" },
+            { id: 15, title: "El İzleme: Sanal Piyano", desc: "Kamera üzerinden el hareketlerini algılayarak notalara dönüştüren sistem.", icon: "fa-hand-sparkles" },
+            { id: 16, title: "Akıllı Ev IoT Paneli", desc: "Raspberry Pi ile haberleşen, buton ve sensör verilerini gösteren arayüz.", icon: "fa-house-signal" },
+            { id: 17, title: "Renk Seçici Kamera", desc: "Kameradan alınan piksellerin RGB/HEX kodlarını analiz eden geliştirici aracı.", icon: "fa-eye-dropper" },
+            { id: 18, title: "Panayır İnteraktif Harita", desc: "Bilişim fuarı ve stantları gösteren tıklanabilir vektörel alan haritası.", icon: "fa-map-location-dot" },
+            { id: 19, title: "Siber Güvenlik Testi", desc: "Temel ağ ve şifreleme bilginizi ölçeceğiniz interaktif JS quiz uygulaması.", icon: "fa-shield-halved" },
+            { id: 20, title: "Voxel Dünyası", desc: "Three.js kullanılarak tarayıcıda blok yerleştirme ve 3D dünya oluşturma.", icon: "fa-cubes" },
+            { id: 21, title: "Dinamik Veri Grafikleri", desc: "Sensörlerden gelen anlık verileri D3.js ile animasyonlu grafiklere dönüştürme.", icon: "fa-chart-line" },
+            { id: 22, title: "AR İnsan Anatomisi", desc: "İnsan vücudu sistemlerini artırılmış gerçeklikte katman katman inceleme.", icon: "fa-bone" },
+            { id: 23, title: "Yapay Zeka Asistanı", desc: "API entegrasyonu ile çalışan, projelere rehberlik eden sohbet botu arayüzü.", icon: "fa-microchip" },
+            { id: 24, title: "Piksel Art Stüdyosu", desc: "HTML5 Canvas kullanarak kendi 8-bit karakterlerinizi çizebileceğiniz editör.", icon: "fa-pen-ruler" },
+            { id: 25, title: "QR Kod ile Eylem", desc: "Kamera okuması sonrası ekranda 3D objelerin belirmesini sağlayan WebRTC sistemi.", icon: "fa-qrcode" },
+            { id: 26, title: "Sesle Kontrol Modülü", desc: "Tarayıcı ses tanıma (Speech API) ile web sayfasındaki nesneleri hareket ettirme.", icon: "fa-microphone" },
+            { id: 27, title: "MAC Adres Sorgulayıcı", desc: "Ağ cihazları için hazırlanmış yerel ağ tanımlama arayüzü simülasyonu.", icon: "fa-network-wired" },
+            { id: 28, title: "Sanal Klavye Eğitimi", desc: "Hızlı klavye kullanımını oyunlaştırarak öğreten interaktif yazım testi.", icon: "fa-keyboard" },
+            { id: 29, title: "AR Matematik", desc: "Karmaşık geometri şekillerini uzayda her açıdan görüntüleyebilme.", icon: "fa-calculator" },
+            { id: 30, title: "Gençlik Merkezi 360", desc: "Panorama görseller ile Gençlik Merkezi'nde sanal bir tur deneyimi.", icon: "fa-vr-cardboard" }
+        ];
+
+        const container = document.getElementById('projectContainer');
+        const searchInput = document.getElementById('searchInput');
+
+        // Projeleri Ekrana Çizdirme Fonksiyonu
+        function renderProjects() {
+            container.innerHTML = ''; // Önce temizle
+            
+            projectsData.forEach((project, index) => {
+                // Klasör formatını (proje1, proje2) ayarla
+                const folderName = `proje${project.id}`;
+                // Sırayla farklı renkler ata
+                const themeColor = colors[index % colors.length];
+
+                const cardHTML = `
+                    <div class="project-card" style="--card-color: ${themeColor};">
+                        <div class="project-number">${project.id < 10 ? '0'+project.id : project.id}</div>
+                        <div class="icon-wrapper">
+                            <i class="fa-solid ${project.icon}"></i>
+                        </div>
+                        <h2 class="project-title">${project.title}</h2>
+                        <p class="description">${project.desc}</p>
+                        <a href="${folderName}/index.html" class="btn-launch">Projeyi Başlat</a>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // Arama (Filtreleme) Fonksiyonu
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.project-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.project-title').innerText.toLowerCase();
+                const desc = card.querySelector('.description').innerText.toLowerCase();
+                
+                if (title.includes(term) || desc.includes(term)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+
+        // Sayfa yüklendiğinde projeleri oluştur
+        window.onload = renderProjects;
+    </script>
+
+</body>
+</html>
